@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=1;x=1575;y=306"/>
+      <property name="position-locked" type="bool" value="false"/>
+      <property name="mode" type="uint" value="1"/>
+      <property name="background-style" type="uint" value="0"/>
+    </property>
+  </property>
+</channel>

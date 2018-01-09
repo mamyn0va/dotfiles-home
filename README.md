@@ -2,7 +2,7 @@
 
 ## Guake
 
-## fish + fisherman + bobthefish
+## Fish + fisherman + oh-my-fish + bobthefish
 
 ## Atom
 

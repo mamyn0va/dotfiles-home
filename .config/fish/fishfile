@@ -5,8 +5,8 @@ fisherman/cprintf
 fisherman/debug
 fisherman/docker-completion
 fisherman/done
+laughedelic/fish_logo
 fisherman/g2
 fisherman/getopts
 fisherman/git_util
 fisherman/humanize_duration
-fisherman/pwd_is_home

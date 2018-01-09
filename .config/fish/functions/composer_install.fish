@@ -1,0 +1,1 @@
+/home/biros/.config/fisherman/composer/functions/composer_install.fish
