@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="ShowDigital" mtime="1515449495" type="bool" value="true"/>
+</gconf>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="Metric" mtime="1515449481" type="bool" value="true"/>
+	<entry name="Location" mtime="1515449464" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>Caen, France</stringvalue>
+		</li>
+	</entry>
+</gconf>
