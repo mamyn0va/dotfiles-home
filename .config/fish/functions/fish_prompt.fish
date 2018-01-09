@@ -1,0 +1,1 @@
+/home/biros/.config/fisherman/bobthefish/fish_prompt.fish

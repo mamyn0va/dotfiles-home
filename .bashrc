@@ -40,7 +40,6 @@ alias vi='vim'
 alias term='xfce4-terminal --tab --drop-down'
 
 export VISUAL=vim
-export SLACK_TOKEN=xoxp-46450338225-46441448352-209288442147-2e4ca0957557afad5d5036e330795163
 
 # Run twolfson/sexy-bash-prompt
 . ~/.bash_prompt
