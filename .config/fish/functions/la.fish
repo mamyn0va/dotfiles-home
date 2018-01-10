@@ -1,4 +1,4 @@
 # Defined in - @ line 0
-function la --description 'alias la=colorls -a'
-	colorls -a $argv;
+function la --description 'alias la=colorls -A --sd'
+	colorls -A --sd $argv;
 end

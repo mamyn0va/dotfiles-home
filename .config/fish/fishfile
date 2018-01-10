@@ -6,6 +6,7 @@ fisherman/cprintf
 fisherman/debug
 fisherman/docker-completion
 fisherman/done
+fisherman/enhancd
 laughedelic/fish_logo
 fisherman/g2
 fisherman/getopts
