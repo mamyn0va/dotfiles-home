@@ -10,6 +10,7 @@ apm 1.19.0-1
 asoundconf 1:1.2-1
 atom 1.23.2-1
 autoconf 2.69-4
+autojump 22.5.1-1
 automake 1.15.1-1
 avahi 0.7-2
 awesome-terminal-fonts 1.1.0-1
@@ -54,6 +55,7 @@ ecryptfs-utils 111-2
 efibootmgr 15-1
 engrampa 1.18.3-1
 engrampa-thunar-plugin 1.0-2
+exa 0.8.0-1
 exfat-utils 1.2.7-1
 exo 0.11.5-1
 f2fs-tools 1.9.0-1
@@ -69,6 +71,8 @@ fisherman 2.8.0-2
 flashplugin 28.0.0.126-1
 flex 2.6.4-1
 freetype2 2.8.1-1
+fzf 0.17.3-1
+fzf-extras 0.0.21-1
 galculator-gtk2 2.1.4-3
 garcon 0.6.1-1
 gawk 4.2.0-2
@@ -85,6 +89,7 @@ glibc 2.26-8
 gnome-icon-theme 3.12.0-4
 gnome-keyring 1:3.27.2-1
 gnome-themes-standard 3.22.3+13+ga993fdc0-1
+googler 3.4-1
 gparted 0.30.0-3
 grep 3.1-1
 grub 2.02.0-4
@@ -189,6 +194,7 @@ mtpfs 1.1-2
 mugshot 0.3.2-2
 nano 2.9.2-1
 neovim 0.2.2-1
+nerd-fonts-complete 1.2.0-1
 network-manager-applet 1.8.11dev+7+ga52ccb2f-1
 networkmanager 1.10.2-1
 networkmanager-dispatcher-ntpd 1.0-6
@@ -243,6 +249,7 @@ python-pillow 4.3.0-1
 python-pip 9.0.1-3
 python-pyqt5 5.9.2-2
 python-reportlab 3.4.0-1
+python-slacker 0.9.25-1
 qpdfview 0.4.17beta1-4.1
 qt5-websockets 5.10.0-1
 reiserfsprogs 3.6.27-1
