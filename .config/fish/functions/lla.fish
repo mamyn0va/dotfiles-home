@@ -1,4 +1,8 @@
-# Defined in - @ line 0
+# Defined in /home/biros/.config/fish/functions/lla.fish @ line 2
 function lla --description 'alias lla=colorls -lA --sd --gs'
-	colorls -lA --sd --gs $argv;
+	if test (count $argv) -gt 0
+	    colorls -lA --sd $argv
+    else
+        colorls -lA --sd
+    end
 end
