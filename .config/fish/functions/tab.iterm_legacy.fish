@@ -1,0 +1,1 @@
+/home/biros/.config/fisherman/tab/functions/tab.iterm_legacy.fish

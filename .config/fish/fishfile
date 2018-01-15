@@ -12,3 +12,4 @@ fisherman/g2
 fisherman/getopts
 fisherman/git_util
 fisherman/humanize_duration
+oh-my-fish/plugin-tab

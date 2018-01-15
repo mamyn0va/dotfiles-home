@@ -1,0 +1,1 @@
+/home/biros/.config/fisherman/tab/functions/tab.konsole.fish
