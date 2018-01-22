@@ -1,6 +1,6 @@
 # my dotfiles @home for manjaro
 
-## xfce + docky
+## xfce + docky + compiz + emerald (mu theme)
 
 ## guake
 
