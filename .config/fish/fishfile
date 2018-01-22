@@ -11,5 +11,7 @@ laughedelic/fish_logo
 fisherman/g2
 fisherman/getopts
 fisherman/git_util
+fisherman/grc
 fisherman/humanize_duration
 oh-my-fish/plugin-tab
+fisherman/terminals-are-sexy

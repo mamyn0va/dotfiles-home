@@ -1,0 +1,1 @@
+/home/biros/.config/fisherman/grc/functions/diff.fish

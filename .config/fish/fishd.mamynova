@@ -34,5 +34,5 @@ SET fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SET fish_user_abbreviations:\x1d
 SET fish_user_paths:/home/biros/\x2econfig/composer/vendor/bin
 SET fisher_active_prompt:bobthefish
-SET fisher_dependency_count:getopts\x1edebug\x1ecprintf\x1eg2\x1edocker\x2dcompletion\x1ecomposer\x1earchlinux\x1efish_logo\x1edone\x1ehumanize_duration\x1egit_util\x1ehumanize_duration\x1ebobthefish\x1ebass\x1eenhancd\x1etab
+SET fisher_dependency_count:getopts\x1edebug\x1ecprintf\x1eg2\x1edocker\x2dcompletion\x1ecomposer\x1earchlinux\x1efish_logo\x1edone\x1ehumanize_duration\x1egit_util\x1ehumanize_duration\x1ebass\x1eenhancd\x1etab\x1eterminals\x2dare\x2dsexy\x1ebobthefish\x1egrc
 SET pisces_pairs:\x28\x2c\x29\x1e\x5b\x2c\x5d\x1e\x7b\x2c\x7d\x1e\x22\x2c\x22\x1e\x27\x2c\x27
