@@ -72,7 +72,7 @@
     <property name="use_compositing" type="bool" value="true"/>
     <property name="workspace_count" type="int" value="1"/>
     <property name="workspace_names" type="array">
-      <value type="string" value="Workspace 1"/>
+      <value type="string" value="Main workspace"/>
       <value type="string" value="Workspace 2"/>
       <value type="string" value="Workspace 3"/>
       <value type="string" value="Workspace 4"/>
