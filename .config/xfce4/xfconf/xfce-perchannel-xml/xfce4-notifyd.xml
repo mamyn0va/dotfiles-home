@@ -11,6 +11,7 @@
       <value type="string" value="Package Manager"/>
       <value type="string" value="Waterfox"/>
       <value type="string" value="xfce4-power-manager"/>
+      <value type="string" value="xfce4-settings-helper"/>
     </property>
   </property>
 </channel>

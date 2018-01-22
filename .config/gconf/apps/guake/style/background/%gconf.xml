@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="color" mtime="1516052013" type="string">
+	<entry name="image" mtime="1516656170" type="string">
+		<stringvalue>/home/biros/Pictures/9b5b79daf346c4be1e7183feb73e43d4f761c6c9.png</stringvalue>
+	</entry>
+	<entry name="color" mtime="1516655478" type="string">
 		<stringvalue>#090911111a1a</stringvalue>
 	</entry>
-	<entry name="transparency" mtime="1516051819" type="int" value="0"/>
+	<entry name="transparency" mtime="1516656225" type="int" value="20"/>
 </gconf>
