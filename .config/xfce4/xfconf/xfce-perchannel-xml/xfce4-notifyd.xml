@@ -12,6 +12,7 @@
       <value type="string" value="Waterfox"/>
       <value type="string" value="xfce4-power-manager"/>
       <value type="string" value="xfce4-settings-helper"/>
+      <value type="string" value="xfdesktop"/>
     </property>
   </property>
 </channel>
