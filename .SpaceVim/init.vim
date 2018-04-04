@@ -13,8 +13,14 @@ execute 'source' fnamemodify(expand('<sfile>'), ':h').'/config/main.vim'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 " Initialize plugin system
+Plug 'nicholasc/vim-seti'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
 call plug#end()
 
 let g:spacevim_enable_guicolors = 0
 
 set guicursor=
+
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &

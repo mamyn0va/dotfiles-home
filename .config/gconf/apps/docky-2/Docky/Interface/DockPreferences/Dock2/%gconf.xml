@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="ZoomPercent" mtime="1515449182" type="float" value="2"/>
-	<entry name="ZoomEnabled" mtime="1515449182" type="bool" value="true"/>
-	<entry name="ThreeDimensional" mtime="1515449182" type="bool" value="false"/>
-	<entry name="Launchers" mtime="1515449182" type="list" ltype="string">
+	<entry name="ZoomPercent" mtime="1519248206" type="float" value="2"/>
+	<entry name="ZoomEnabled" mtime="1519248206" type="bool" value="true"/>
+	<entry name="ThreeDimensional" mtime="1519248206" type="bool" value="false"/>
+	<entry name="Launchers" mtime="1519248206" type="list" ltype="string">
 	</entry>
-	<entry name="IndicateMultipleWindows" mtime="1515449182" type="bool" value="true"/>
-	<entry name="IconSize" mtime="1515449182" type="int" value="48"/>
-	<entry name="HotAreaPadding" mtime="1515449182" type="int" value="24"/>
-	<entry name="FadeOpacity" mtime="1515449182" type="float" value="0"/>
-	<entry name="FadeOnHide" mtime="1515449182" type="bool" value="false"/>
-	<entry name="Autohide" mtime="1515449182" type="string">
+	<entry name="IndicateMultipleWindows" mtime="1519248206" type="bool" value="true"/>
+	<entry name="IconSize" mtime="1519248206" type="int" value="48"/>
+	<entry name="HotAreaPadding" mtime="1519248206" type="int" value="24"/>
+	<entry name="FadeOpacity" mtime="1519248206" type="float" value="0"/>
+	<entry name="FadeOnHide" mtime="1519248206" type="bool" value="false"/>
+	<entry name="Autohide" mtime="1519248206" type="string">
 		<stringvalue>None</stringvalue>
 	</entry>
-	<entry name="WindowManager" mtime="1515449182" type="bool" value="false"/>
-	<entry name="Plugins" mtime="1515449182" type="list" ltype="string">
+	<entry name="WindowManager" mtime="1519248206" type="bool" value="false"/>
+	<entry name="Plugins" mtime="1519248206" type="list" ltype="string">
 	</entry>
-	<entry name="MonitorNumber" mtime="1515449182" type="int" value="0"/>
-	<entry name="Position" mtime="1515449161" type="string">
+	<entry name="MonitorNumber" mtime="1519248206" type="int" value="0"/>
+	<entry name="Position" mtime="1519248167" type="string">
 		<stringvalue>Left</stringvalue>
 	</entry>
-	<entry name="SortList" mtime="1515449182" type="list" ltype="string">
+	<entry name="SortList" mtime="1519248206" type="list" ltype="string">
 	</entry>
 </gconf>
