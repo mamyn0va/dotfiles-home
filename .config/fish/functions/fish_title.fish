@@ -1,1 +1,0 @@
-/home/biros/.config/fisherman/bobthefish/fish_title.fish

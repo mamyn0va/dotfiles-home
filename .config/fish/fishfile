@@ -1,17 +1,12 @@
 oh-my-fish/plugin-archlinux
 edc/bass
-oh-my-fish/theme-bobthefish
-oh-my-fish/plugin-composer
 fisherman/cprintf
 fisherman/debug
-fisherman/docker-completion
 fisherman/done
 fisherman/enhancd
-laughedelic/fish_logo
 fisherman/g2
 fisherman/getopts
 fisherman/git_util
-fisherman/grc
 fisherman/humanize_duration
 oh-my-fish/plugin-tab
 fisherman/terminals-are-sexy

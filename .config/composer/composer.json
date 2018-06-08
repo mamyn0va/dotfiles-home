@@ -6,7 +6,9 @@
         "phpunit/phpunit": "^6.5",
         "phan/phan": "^0.11.1",
         "phpmd/phpmd": "^2.6",
-        "phploc/phploc": "^4.0"
+        "phploc/phploc": "^4.0",
+        "webysther/composer-plugin-qa": "^1.0",
+        "psy/psysh": "^0.9.5"
     },
     "authors": [
         {

@@ -1,1 +1,4 @@
-/home/biros/.config/fisherman/grc/functions/cat.fish
+# Defined in - @ line 0
+function cat --description 'alias cat=ccat'
+	ccat  $argv;
+end

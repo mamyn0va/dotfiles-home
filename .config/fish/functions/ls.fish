@@ -1,1 +1,4 @@
-/home/biros/.config/fisherman/grc/functions/ls.fish
+# Defined in - @ line 0
+function ls --description 'alias ls=colorls --sd'
+	colorls --sd $argv;
+end

@@ -1,1 +1,3 @@
-/home/biros/.config/fisherman/bobthefish/fish_greeting.fish
+function fish_greeting
+  fish_logo
+end

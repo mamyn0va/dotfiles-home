@@ -1,1 +1,0 @@
-/home/biros/.config/fisherman/grc/functions/df.fish

@@ -1,1 +1,4 @@
-/home/biros/.config/fisherman/grc/functions/diff.fish
+# Defined in - @ line 0
+function diff --description 'alias diff=icdiff'
+	icdiff  $argv;
+end
