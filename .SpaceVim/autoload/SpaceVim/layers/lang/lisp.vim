@@ -1,3 +1,12 @@
+"=============================================================================
+" lisp.vim --- SpaceVim lang#lisp layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
+
 function! SpaceVim#layers#lang#lisp#plugins() abort
     let plugins = []
     call add(plugins,['l04m33/vlime', {'on_ft' : 'lisp', 'rtp': 'vim'}])
@@ -91,7 +100,7 @@ function! SpaceVim#layers#lang#lisp#config() abort
                 \ ['n', '<c-n>', ':call vlime#ui#input#NextHistoryItem("forward")<cr>'],
                 \ ],
                 \ }
-    call SpaceVim#mapping#space#regesit_lang_mappings('lisp', funcref('s:lisp'))
+    call SpaceVim#mapping#space#regesit_lang_mappings('lisp', function('s:lisp'))
     augroup LocalVlimeKeys
         autocmd!
         autocmd FileType vlime_sldb call s:vlime_sldb()

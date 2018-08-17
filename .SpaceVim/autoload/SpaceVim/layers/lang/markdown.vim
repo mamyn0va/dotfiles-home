@@ -3,7 +3,7 @@
 " Copyright (c) 2016-2017 Shidong Wang & Contributors
 " Author: Shidong Wang < wsdjeg at 163.com >
 " URL: https://spacevim.org
-" License: MIT license
+" License: GPLv3
 "=============================================================================
 
 let s:md_listItemIndent = 1
@@ -38,10 +38,6 @@ function! SpaceVim#layers#lang#markdown#config() abort
         \   "start" : "\\%(vim\\|viml\\)",
         \},
         \}
-  augroup SpaceVim_lang_markdown
-    au!
-    autocmd BufEnter *.md call s:mappings()
-  augroup END
   let remarkrc = s:generate_remarkrc()
   let g:neoformat_enabled_markdown = ['remark']
   let g:neoformat_markdown_remark = {
@@ -53,6 +49,11 @@ function! SpaceVim#layers#lang#markdown#config() abort
   " iamcco/markdown-preview.vim {{{
   let g:mkdp_browserfunc = 'openbrowser#open'
   " }}}
+  call SpaceVim#mapping#space#regesit_lang_mappings('markdown', function('s:mappings'))
+  augroup spacevim_layer_lang_markdown
+    autocmd!
+    autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  augroup END
 endfunction
 
 function! s:mappings() abort

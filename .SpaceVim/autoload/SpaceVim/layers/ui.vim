@@ -1,16 +1,23 @@
+"=============================================================================
+" ui.vim --- SpaceVim ui layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 scriptencoding utf-8
 function! SpaceVim#layers#ui#plugins() abort
   let plugins = [
-        \ ['Yggdroot/indentLine'],
+        \ ['Yggdroot/indentLine', {'merged' : 0}],
         \ ['majutsushi/tagbar', {'loadconf' : 1}],
         \ ['tenfyzhong/tagbar-makefile.vim', {'merged': 0}],
         \ ['tenfyzhong/tagbar-proto.vim', {'merged': 0}],
         \ ['lvht/tagbar-markdown',{'merged' : 0}],
         \ ['t9md/vim-choosewin', {'merged' : 0}],
-        \ ['mhinz/vim-startify', {'loadconf' : 1}],
-        \ ['blueyed/vim-diminactive', {'merged' : 0}],
+        \ ['mhinz/vim-startify', {'loadconf' : 1, 'merged' : 0}],
         \ ]
-  if get(g:, '_spacevim_statusline_loaded', 0) == 0
+  if !SpaceVim#layers#isLoaded('core#statusline')
     call add(plugins, ['vim-airline/vim-airline',                { 'merged' : 0, 
           \ 'loadconf' : 1}])
     call add(plugins, ['vim-airline/vim-airline-themes',         { 'merged' : 0}])
@@ -21,26 +28,35 @@ function! SpaceVim#layers#ui#plugins() abort
 endfunction
 
 function! SpaceVim#layers#ui#config() abort
-  let g:indentLine_color_term = get(g:, 'indentLine_color_term', 239)
-  let g:indentLine_color_gui = get(g:, 'indentLine_color_gui', '#09AA08')
-  let g:indentLine_char = get(g:, 'indentLine_char', '¦')
+  if g:spacevim_colorscheme_bg == 'dark'
+    let g:indentLine_color_term = get(g:, 'indentLine_color_term', 239)
+    let g:indentLine_color_gui = get(g:, 'indentLine_color_gui', '#504945')
+  else
+    let g:indentLine_color_gui = get(g:, 'indentLine_color_gui', '#d5c4a1')
+  endif
+  let g:indentLine_char = get(g:, 'indentLine_char', '┊')
   let g:indentLine_concealcursor = 'niv'
   let g:indentLine_conceallevel = 2
   let g:indentLine_fileTypeExclude = ['help', 'man', 'startify', 'vimfiler']
   let g:signify_disable_by_default = 0
   let g:signify_line_highlight = 0
   noremap <silent> <F2> :silent TagbarToggle<CR>
+  if !empty(g:spacevim_windows_smartclose)
+    call SpaceVim#mapping#def('nnoremap <silent>', g:spacevim_windows_smartclose, ':<C-u>call zvim#util#SmartClose()<cr>',
+          \ 'Smart close windows',
+          \ 'call zvim#util#SmartClose()')
+  endif
   " Ui toggles
   call SpaceVim#mapping#space#def('nnoremap', ['t', '8'], 'call call('
         \ . string(s:_function('s:toggle_fill_column')) . ', [])',
-        \ 'toggle-colorcolumn', 1)
+        \ 'highlight-long-lines', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'b'], 'call ToggleBG()',
         \ 'toggle background', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 't'], 'call SpaceVim#plugins#tabmanager#open()',
         \ 'Open tabs manager', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'f'], 'call call('
         \ . string(s:_function('s:toggle_colorcolumn')) . ', [])',
-        \ 'toggle-colorcolumn', 1)
+        \ 'fill-column-indicator', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 'h'], 'set cursorline!',
         \ 'toggle highlight of the current line', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 'i'], 'call call('
@@ -120,7 +136,7 @@ else
 endif
 function! s:toggle_colorcolumn() abort
   if !s:ccflag
-    set cc=80
+    let &cc = g:spacevim_max_column
     let s:ccflag = 1
   else
     set cc=
@@ -141,15 +157,8 @@ function! s:toggle_fill_column() abort
   call SpaceVim#layers#core#statusline#toggle_mode('hi-characters-for-long-lines')
 endfunction
 
-let s:idflag = 0
 function! s:toggle_indentline() abort
-  if !s:idflag
-    IndentLinesDisable
-    let s:idflag = 1
-  else
-    IndentLinesEnable
-    let s:idflag = 0
-  endif
+  IndentLinesToggle
 endfunction
 
 let s:shflag = 0

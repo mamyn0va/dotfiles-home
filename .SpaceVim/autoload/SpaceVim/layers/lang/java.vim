@@ -1,3 +1,11 @@
+"=============================================================================
+" java.vim --- SpaceVim lang#java layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 ""
 " @section lang#java, layer-lang-java
 " @parentsection layers
@@ -83,22 +91,19 @@ function! SpaceVim#layers#lang#java#plugins() abort
 endfunction
 
 function! SpaceVim#layers#lang#java#config() abort
-  call SpaceVim#mapping#space#regesit_lang_mappings('java', funcref('s:language_specified_mappings'))
+  call SpaceVim#mapping#space#regesit_lang_mappings('java', function('s:language_specified_mappings'))
   call SpaceVim#plugins#repl#reg('java', 'jshell')
+  call add(g:spacevim_project_rooter_patterns, 'pom.xml')
   augroup SpaceVim_lang_java
     au!
     autocmd FileType java setlocal omnifunc=javacomplete#Complete
     autocmd FileType java call s:java_mappings()
   augroup END
-  set tags +=~/others/openjdksrc/java/tags
-  set tags +=~/others/openjdksrc/javax/tags
   let g:neoformat_enabled_java = ['googlefmt']
   let g:neoformat_java_googlefmt = {
         \ 'exe': 'java',
-        \ 'args': ['-jar', get(g:,'spacevim_layer_lang_java_formatter', '')],
-        \ 'replace': 0,
-        \ 'stdin': 0,
-        \ 'no_append': 0,
+        \ 'args': ['-jar', get(g:,'spacevim_layer_lang_java_formatter', ''), '-'],
+        \ 'stdin': 1,
         \ }
   try
     let g:neoformat_enabled_java += neoformat#formatters#java#enabled()

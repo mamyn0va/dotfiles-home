@@ -1,8 +1,16 @@
+"=============================================================================
+" logger.vim --- SpaceVim logger
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 let s:LOGGER = SpaceVim#api#import('logger')
 
 call s:LOGGER.set_name('SpaceVim')
 call s:LOGGER.set_level(1)
-call s:LOGGER.set_silent(0)
+call s:LOGGER.set_silent(1)
 call s:LOGGER.set_verbose(1)
 
 function! SpaceVim#logger#info(msg) abort
@@ -22,6 +30,26 @@ function! SpaceVim#logger#error(msg) abort
   call s:LOGGER.error(a:msg)
 
 endfunction
+
+function! SpaceVim#logger#viewRuntimeLog() abort
+  let info = "### SpaceVim runtime log :\n\n"
+  let info .= "```log\n"
+
+  let info .= s:LOGGER.view(s:LOGGER.level)
+
+  let info .= "\n```\n"
+  tabnew +setl\ nobuflisted
+  nnoremap <buffer><silent> q :bd!<CR>
+  for msg in split(info, "\n")
+    call append(line('$'), msg)
+  endfor
+  normal! "_dd
+  setl nomodifiable
+  setl buftype=nofile
+  setl filetype=markdown
+
+endfunction
+
 
 function! SpaceVim#logger#viewLog(...) abort
   let info = "### SpaceVim Options :\n\n"

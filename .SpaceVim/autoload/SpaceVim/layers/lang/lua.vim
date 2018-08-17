@@ -1,3 +1,11 @@
+"=============================================================================
+" lua.vim --- SpaceVim lang#lua layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 ""
 " @section lang#lua, layer-lang-lua
 " @parentsection layers
@@ -28,7 +36,7 @@ function! SpaceVim#layers#lang#lua#config() abort
     augroup END
   endif
 
-  call SpaceVim#mapping#space#regesit_lang_mappings('lua', funcref('s:language_specified_mappings'))
+  call SpaceVim#mapping#space#regesit_lang_mappings('lua', function('s:language_specified_mappings'))
   call SpaceVim#plugins#runner#reg_runner('lua', 'lua %s')
   if !empty(s:lua_repl_command)
       call SpaceVim#plugins#repl#reg('lua',s:lua_repl_command)

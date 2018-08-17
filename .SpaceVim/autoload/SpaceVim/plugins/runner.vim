@@ -3,7 +3,7 @@
 " Copyright (c) 2016-2017 Shidong Wang & Contributors
 " Author: Shidong Wang < wsdjeg at 163.com >
 " URL: https://spacevim.org
-" License: MIT license
+" License: GPLv3
 "=============================================================================
 
 let s:JOB = SpaceVim#api#import('job')
@@ -56,6 +56,17 @@ function! s:async_run(runner) abort
           \ 'on_stdout' : function('s:on_stdout'),
           \ 'on_stderr' : function('s:on_stderr'),
           \ 'on_exit' : function('s:on_compile_exit'),
+          \ })
+  elseif type(a:runner) == type({})
+    let exe = call(a:runner.exe, [])
+    let cmd = exe + a:runner.opt + [bufname('%')]
+    call s:BUFFER.buf_set_lines(s:bufnr, s:lines , s:lines + 3, 0, ['[Running] ' . join(cmd), '', repeat('-', 20)])
+    let s:lines += 3
+    let s:start_time = reltime()
+    let s:job_id =  s:JOB.start(cmd,{
+          \ 'on_stdout' : function('s:on_stdout'),
+          \ 'on_stderr' : function('s:on_stderr'),
+          \ 'on_exit' : function('s:on_exit'),
           \ })
   endif
 endfunction

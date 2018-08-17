@@ -1,15 +1,21 @@
 "=============================================================================
-" tabline.vim --- core#tabline Layer file for SpaceVim
-" Copyright (c) 2012-2016 Shidong Wang & Contributors
-" Author: Shidong Wang < wsdjeg at 163.com >
+" tabline.vim --- SpaceVim tabline
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
 " URL: https://spacevim.org
-" License: MIT license
+" License: GPLv3
 "=============================================================================
 
 ""
 " @section core#tabline, layer-core-tabline
 " @parentsection layers
 " This layer provides default tabline for SpaceVim
+" If you want to use airline's tabline, just disable this layer
+" >
+"   [[layers]]
+"     name = "core#tabline"
+"     enable = false
+" <
 
 scriptencoding utf-8
 let s:messletters = SpaceVim#api#import('messletters')
@@ -32,7 +38,7 @@ let s:separators = {
 
 let s:i_separators = {
       \ 'arrow' : ["\ue0b1", "\ue0b3"],
-      \ 'bar' : ["|", "|"],
+      \ 'bar' : ['|', '|'],
       \ 'nil' : ['', ''],
       \ }
 

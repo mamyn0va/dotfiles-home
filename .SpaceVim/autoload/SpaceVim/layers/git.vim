@@ -1,8 +1,14 @@
+"=============================================================================
+" git.vim --- SpaceVim git layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 function! SpaceVim#layers#git#plugins() abort
   let plugins = [
         \ ['junegunn/gv.vim',      { 'on_cmd' : ['GV']}],
-        \ ['airblade/vim-gitgutter',      { 'merged' : 0}],
-        \ ['tpope/vim-fugitive',   { 'merged' : 0}],
         \ ]
   if has('patch-8.0.0027') || has('nvim')
     call add(plugins, ['lambdalisue/gina.vim', { 'on_cmd' : 'Gina'}])
@@ -16,7 +22,7 @@ endfunction
 function! SpaceVim#layers#git#config() abort
   let g:_spacevim_mappings_space.g = get(g:_spacevim_mappings_space, 'g',  {'name' : '+VersionControl/git'})
   if has('patch-8.0.0027') || has('nvim')
-    call SpaceVim#mapping#space#def('nnoremap', ['g', 's'], 'Gina status', 'git status', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['g', 's'], 'Gina status --opener=10split', 'git status', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'S'], 'Gina add %', 'stage current file', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'U'], 'Gina reset -q %', 'unstage current file', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'c'], 'Gina commit', 'edit git commit', 1)
@@ -34,15 +40,16 @@ function! SpaceVim#layers#git#config() abort
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'A'], 'Gita add .', 'stage all files', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'b'], 'Gina blame', 'view git blame', 1)
   endif
-  nmap <leader>hj <plug>(signify-next-hunk)
-  nmap <leader>hk <plug>(signify-prev-hunk)
-  nmap <leader>hJ 9999<leader>gj
-  nmap <leader>hK 9999<leader>gk
   augroup spacevim_layer_git
     autocmd!
     autocmd FileType diff nnoremap <buffer><silent> q :bd!<CR>
     autocmd FileType gitcommit setl omnifunc=SpaceVim#plugins#gitcommit#complete
+    autocmd FileType gitcommit setl spell 
+    autocmd FileType gina-commit setl spell 
     autocmd User GitGutter let &l:statusline = SpaceVim#layers#core#statusline#get(1)
+    " Instead of reverting the cursor to the last position in the buffer, we
+    " set it to the first line when editing a git commit message
+    au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
   augroup END
   call SpaceVim#mapping#space#def('nnoremap', ['g', 'M'], 'call call('
         \ . string(function('s:display_last_commit_of_current_line')) . ', [])',

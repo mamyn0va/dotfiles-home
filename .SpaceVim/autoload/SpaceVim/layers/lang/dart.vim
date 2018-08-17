@@ -1,3 +1,11 @@
+"=============================================================================
+" dart.vim --- SpaceVim lang#dart layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 function! SpaceVim#layers#lang#dart#plugins() abort
   let plugins = []
   call add(plugins, ['dart-lang/dart-vim-plugin', {'merged' : 0}])
@@ -10,7 +18,7 @@ endfunction
 
 function! SpaceVim#layers#lang#dart#config() abort
   call SpaceVim#plugins#runner#reg_runner('dart', 'dart %s')
-  call SpaceVim#mapping#space#regesit_lang_mappings('dart', funcref('s:language_specified_mappings'))
+  call SpaceVim#mapping#space#regesit_lang_mappings('dart', function('s:language_specified_mappings'))
   call SpaceVim#plugins#repl#reg('dart', ['pub', 'global', 'run', 'dart_repl'])
 endfunction
 

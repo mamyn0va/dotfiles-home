@@ -1,3 +1,11 @@
+"=============================================================================
+" util.vim --- SpaceVim utils
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 function! SpaceVim#util#globpath(path, expr) abort
   if has('patch-7.4.279')
     return globpath(a:path, a:expr, 1, 1)
@@ -29,13 +37,26 @@ function! SpaceVim#util#echoWarn(msg) abort
 endfunction
 
 function! SpaceVim#util#haspyxlib(lib) abort
-
   try
-    if has('nvim')
-      exe 'py import ' . a:lib
-    else
       exe 'pyx import ' . a:lib
-    endif
+  catch
+    return 0
+  endtry
+  return 1
+endfunction
+
+function! SpaceVim#util#haspylib(lib)
+  try
+      exe 'py import ' . a:lib
+  catch
+    return 0
+  endtry
+  return 1
+endfunction
+
+function! SpaceVim#util#haspy3lib(lib)
+  try
+      exe 'py3 import ' . a:lib
   catch
     return 0
   endtry

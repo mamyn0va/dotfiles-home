@@ -3,7 +3,7 @@
 " Copyright (c) 2016-2017 Shidong Wang & Contributors
 " Author: Shidong Wang < wsdjeg at 163.com >
 " URL: https://spacevim.org
-" License: MIT license
+" License: GPLv3
 "=============================================================================
 
 function! SpaceVim#layers#lang#ruby#plugins() abort
@@ -14,7 +14,7 @@ endfunction
 
 function! SpaceVim#layers#lang#ruby#config() abort
   call SpaceVim#plugins#runner#reg_runner('ruby', 'ruby %s')
-  call SpaceVim#mapping#space#regesit_lang_mappings('ruby', funcref('s:language_specified_mappings'))
+  call SpaceVim#mapping#space#regesit_lang_mappings('ruby', function('s:language_specified_mappings'))
   call SpaceVim#plugins#repl#reg('ruby', 'irb')
 endfunction
 
@@ -35,6 +35,6 @@ function! s:language_specified_mappings() abort
         \ 'send selection and keep code buffer focused', 1)
   let g:_spacevim_mappings_space.l.c = {'name' : '+RuboCop'}
   call SpaceVim#mapping#space#langSPC('nmap', ['l','c', 'f'],
-        \ 'Noeformat rubocop',
+        \ 'Neoformat rubocop',
         \ 'Runs RuboCop on the currently visited file', 1)
 endfunction

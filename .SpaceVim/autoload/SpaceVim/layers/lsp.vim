@@ -1,3 +1,11 @@
+"=============================================================================
+" lsp.vim --- SpaceVim lsp layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 function! SpaceVim#layers#lsp#plugins() abort
   let plugins = []
 
@@ -82,7 +90,9 @@ let s:lsp_servers = {
       \ 'go' : ['go-langserver', '-mode', 'stdio'],
       \ 'rust' : ['rustup', 'run', 'nightly', 'rls'],
       \ 'python' : ['pyls'],
-      \ 'php' : ['php', g:spacevim_plugin_bundle_dir . 'repos/github.com/felixfbecker/php-language-server/bin/php-language-server.php']
+      \ 'html' : ['html-languageserver', '--stdio'],
+      \ 'php' : ['php', g:spacevim_plugin_bundle_dir . 'repos/github.com/felixfbecker/php-language-server/bin/php-language-server.php'],
+      \ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', 'using LanguageServer; server = LanguageServer.LanguageServerInstance(STDIN, STDOUT, false); server.runlinter = true; run(server);']
       \ }
 
 function! SpaceVim#layers#lsp#set_variable(var) abort
@@ -98,7 +108,7 @@ function! SpaceVim#layers#lsp#set_variable(var) abort
       if executable(cmd)
         call add(s:enabled_fts, ft)
       else
-        call SpaceVim#logger#warn('Failed to enable lsp for ' . ft . ', ' . cmd . 'is not executable!')
+        call SpaceVim#logger#warn('Failed to enable lsp for ' . ft . ', ' . cmd . ' is not executable!')
       endif
     endif
   endfor

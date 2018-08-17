@@ -1,5 +1,17 @@
+"=============================================================================
+" default.vim --- default options in SpaceVim
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
 scriptencoding utf-8
-function! SpaceVim#default#SetOptions() abort
+
+let s:SYSTEM = SpaceVim#api#import('system')
+
+" Default options {{{
+function! SpaceVim#default#options() abort
   " basic vim settiing
   if has('gui_running')
     set guioptions-=m " Hide menu bar.
@@ -9,10 +21,10 @@ function! SpaceVim#default#SetOptions() abort
     set guioptions-=b " Hide bottom scrollbar
     set showtabline=0 " Hide tabline
     set guioptions-=e " Hide tab
-    if WINDOWS()
+    if s:SYSTEM.isWindows
       " please install the font in 'Dotfiles\font'
       set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
-    elseif OSX()
+    elseif s:SYSTEM.isOSX
       set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
     else
       set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
@@ -23,14 +35,11 @@ function! SpaceVim#default#SetOptions() abort
   " begining start delete the char you just typed in if you do not use set
   " nocompatible ,you need this
   set backspace=indent,eol,start
+  set nrformats-=octal
+  set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
+  set fillchars=vert:│,fold:·
 
-  " Shou number and relativenumber
-  set relativenumber
-  set number
-
-  " set fillchar
-  hi VertSplit ctermbg=NONE guibg=NONE
-  set fillchars+=vert:│
+  set laststatus=2
 
   " hide cmd
   set noshowcmd
@@ -46,45 +55,48 @@ function! SpaceVim#default#SetOptions() abort
   " do not break words.
   set linebreak
 
-  " tab options:
-  set tabstop=4
-  set expandtab
-  set softtabstop=4
-  set shiftwidth=4
+  " Enable line number
+  set number
 
-  " autoread
+  " Automatically read a file changed outside of vim
   set autoread
 
-  " backup
+  " Set SpaceVim data directory {{{
+  " use ~/.cache/SpaceVim/ as default data directory, create the directory if
+  " it does not exist.
   set backup
   set undofile
   set undolevels=1000
-  let g:data_dir = $HOME . '/.data/'
+  let g:data_dir = $HOME . '/.cache/SpaceVim/'
   let g:backup_dir = g:data_dir . 'backup'
   let g:swap_dir = g:data_dir . 'swap'
   let g:undo_dir = g:data_dir . 'undofile'
+  let g:conf_dir = g:data_dir . 'conf'
   if finddir(g:data_dir) ==# ''
-    silent call mkdir(g:data_dir)
+    silent call mkdir(g:data_dir, 'p', 0700)
   endif
   if finddir(g:backup_dir) ==# ''
-    silent call mkdir(g:backup_dir)
+    silent call mkdir(g:backup_dir, 'p', 0700)
   endif
   if finddir(g:swap_dir) ==# ''
-    silent call mkdir(g:swap_dir)
+    silent call mkdir(g:swap_dir, 'p', 0700)
   endif
   if finddir(g:undo_dir) ==# ''
-    silent call mkdir(g:undo_dir)
+    silent call mkdir(g:undo_dir, 'p', 0700)
   endif
+  if finddir(g:conf_dir) ==# ''
+    silent call mkdir(g:conf_dir, 'p', 0700)
+  endif
+  unlet g:data_dir
   unlet g:backup_dir
   unlet g:swap_dir
-  unlet g:data_dir
   unlet g:undo_dir
-  set undodir=$HOME/.data/undofile
-  set backupdir=$HOME/.data/backup
-  set directory=$HOME/.data/swap
+  unlet g:conf_dir
+  set undodir=$HOME/.cache/SpaceVim/undofile
+  set backupdir=$HOME/.cache/SpaceVim/backup
+  set directory=$HOME/.cache/SpaceVim/swap
+  " }}}
 
-  " no fold enable
-  set nofoldenable
   set nowritebackup
   set matchtime=0
   set ruler
@@ -97,80 +109,89 @@ function! SpaceVim#default#SetOptions() abort
   set complete=.,w,b,u,t
   " limit completion menu height
   set pumheight=15
-  set scrolloff=3
+  set scrolloff=1
+  set sidescrolloff=5
+  set display+=lastline
   set incsearch
   set hlsearch
-  set laststatus=2
   set wildignorecase
   set mouse=nv
   set hidden
   set ttimeout
   set ttimeoutlen=50
-  set lazyredraw
   if has('patch-7.4.314')
     " don't give ins-completion-menu messages.
     set shortmess+=c
   endif
+  set shortmess+=s
+  " Do not wrap lone lines
+  set nowrap
+
+  set foldtext=SpaceVim#default#Customfoldtext()
+
 endfunction
+"}}}
 
-function! SpaceVim#default#SetPlugins() abort
-
-  call add(g:spacevim_plugin_groups, 'web')
-  call add(g:spacevim_plugin_groups, 'lang')
-  call add(g:spacevim_plugin_groups, 'edit')
-  call add(g:spacevim_plugin_groups, 'ui')
-  call add(g:spacevim_plugin_groups, 'tools')
-  call add(g:spacevim_plugin_groups, 'checkers')
-  call add(g:spacevim_plugin_groups, 'format')
-  call add(g:spacevim_plugin_groups, 'chat')
-  call add(g:spacevim_plugin_groups, 'git')
-  call add(g:spacevim_plugin_groups, 'VersionControl')
-  call add(g:spacevim_plugin_groups, 'javascript')
-  call add(g:spacevim_plugin_groups, 'ruby')
-  call add(g:spacevim_plugin_groups, 'python')
-  call add(g:spacevim_plugin_groups, 'scala')
-  call add(g:spacevim_plugin_groups, 'lang#go')
-  call add(g:spacevim_plugin_groups, 'lang#markdown')
-  call add(g:spacevim_plugin_groups, 'scm')
-  call add(g:spacevim_plugin_groups, 'editing')
-  call add(g:spacevim_plugin_groups, 'indents')
-  call add(g:spacevim_plugin_groups, 'navigation')
-  call add(g:spacevim_plugin_groups, 'misc')
-
-  call add(g:spacevim_plugin_groups, 'core')
+function! SpaceVim#default#layers() abort
+  call SpaceVim#layers#load('autocomplete')
+  call SpaceVim#layers#load('checkers')
+  call SpaceVim#layers#load('format')
+  call SpaceVim#layers#load('edit')
+  call SpaceVim#layers#load('ui')
+  call SpaceVim#layers#load('core')
   call SpaceVim#layers#load('core#banner')
   call SpaceVim#layers#load('core#statusline')
   call SpaceVim#layers#load('core#tabline')
-  call add(g:spacevim_plugin_groups, 'default')
-  call add(g:spacevim_plugin_groups, 'unite')
-  call add(g:spacevim_plugin_groups, 'github')
-  if has('python3')
-    call add(g:spacevim_plugin_groups, 'denite')
-  endif
-  call add(g:spacevim_plugin_groups, 'ctrlp')
-  call add(g:spacevim_plugin_groups, 'autocomplete')
-  if ! has('nvim')
-    call add(g:spacevim_plugin_groups, 'vim')
-  else
-    call add(g:spacevim_plugin_groups, 'nvim')
-  endif
-  if OSX()
-    call add(g:spacevim_plugin_groups, 'osx')
-  endif
-  if WINDOWS()
-    call add(g:spacevim_plugin_groups, 'windows')
-  endif
-  if LINUX()
-    call add(g:spacevim_plugin_groups, 'linux')
-  endif
+  call SpaceVim#layers#load('sudo')
 endfunction
 
-function! SpaceVim#default#SetMappings() abort
+function! SpaceVim#default#keyBindings() abort
+  if g:spacevim_enable_insert_leader
+    inoremap <silent> <Leader><Tab> <C-r>=MyLeaderTabfunc()<CR>
+  endif
 
-  " Save a file with sudo
-  " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
-  cnoremap w!! %!sudo tee > /dev/null %
+  " yark and paste
+  xnoremap <Leader>y "+y
+  xnoremap <Leader>d "+d
+  nnoremap <Leader>p "+p
+  nnoremap <Leader>P "+P
+  xnoremap <Leader>p "+p
+  xnoremap <Leader>P "+P
 
+
+  " Location list movement
+  let g:_spacevim_mappings.l = {'name' : '+Location movement'}
+  call SpaceVim#mapping#def('nnoremap', '<Leader>lj', ':lnext<CR>',
+        \ 'Jump to next location list position',
+        \ 'lnext',
+        \ 'Next location list')
+  call SpaceVim#mapping#def('nnoremap', '<Leader>lk', ':lprev<CR>',
+        \ 'Jump to previous location list position',
+        \ 'lprev',
+        \ 'Previous location list')
+  call SpaceVim#mapping#def('nnoremap', '<Leader>lq', ':lclose<CR>',
+        \ 'Close the window showing the location list',
+        \ 'lclose',
+        \ 'Close location list window')
+
+  " quickfix list movement
+  let g:_spacevim_mappings.q = {'name' : '+Quickfix movement'}
+  call SpaceVim#mapping#def('nnoremap', '<Leader>qj', ':cnext<CR>',
+        \ 'Jump to next quickfix list position',
+        \ 'cnext',
+        \ 'Next quickfix list')
+  call SpaceVim#mapping#def('nnoremap', '<Leader>qk', ':cprev<CR>',
+        \ 'Jump to previous quickfix list position',
+        \ 'cprev',
+        \ 'Previous quickfix list')
+  call SpaceVim#mapping#def('nnoremap', '<Leader>qq', ':cclose<CR>',
+        \ 'Close quickfix list window',
+        \ 'cclose',
+        \ 'Close quickfix list window')
+  call SpaceVim#mapping#def('nnoremap <silent>', '<Leader>qr', 'q',
+        \ 'Toggle recording',
+        \ '',
+        \ 'Toggle recording mode')
 
   " Use Ctrl+* to jump between windows
   nnoremap <silent><C-Right> :<C-u>wincmd l<CR>
@@ -214,7 +235,7 @@ function! SpaceVim#default#SetMappings() abort
 
   " Improve scroll, credits: https://github.com/Shougo
   nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-        \ 'zt' : (winline() == 1) ? 'zb' : 'zz'
+        \ 'zt' : (winline() == &scrolloff + 1) ? 'zb' : 'zz'
   noremap <expr> <C-f> max([winheight(0) - 2, 1])
         \ ."\<C-d>".(line('w$') >= line('$') ? "L" : "H")
   noremap <expr> <C-b> max([winheight(0) - 2, 1])
@@ -236,13 +257,11 @@ function! SpaceVim#default#SetMappings() abort
   nnoremap <silent><Down> gj
   nnoremap <silent><Up> gk
 
-
-  " Use Q format lines
-  map Q gq
-
   " Navigate window
   nnoremap <silent><C-q> <C-w>
-  nnoremap <silent><C-x> <C-w>x
+  if !g:spacevim_vimcompatible
+    nnoremap <silent><C-x> <C-w>x
+  endif
 
   " Navigation in command line
   cnoremap <C-a> <Home>
@@ -292,11 +311,6 @@ function! SpaceVim#default#SetMappings() abort
 
   call SpaceVim#mapping#def('nnoremap <silent>', '<C-c>', ':<c-u>call zvim#util#CopyToClipboard()<cr>',
         \ 'Copy buffer absolute path to X11 clipboard','call zvim#util#CopyToClipboard()')
-  call SpaceVim#mapping#def('nnoremap <silent>', '<Tab>', ':wincmd w<CR>', 'Switch to next window or tab','wincmd w')
-  call SpaceVim#mapping#def('nnoremap <silent>', '<S-Tab>', ':wincmd p<CR>', 'Switch to previous window or tab','wincmd p')
-  call SpaceVim#mapping#def('nnoremap <silent>', 'q', ':<C-u>call zvim#util#SmartClose()<cr>',
-        \ 'Smart close windows',
-        \ 'call zvim#util#SmartClose()')
 endfunction
 
 fu! s:tobur(num) abort
@@ -321,6 +335,31 @@ endf
 
 function! SpaceVim#default#UseSimpleMode() abort
 
+endfunction
+
+function! SpaceVim#default#Customfoldtext() abort
+  "get first non-blank line
+  let fs = v:foldstart
+  while getline(fs) =~# '^\s*$' | let fs = nextnonblank(fs + 1)
+  endwhile
+  if fs > v:foldend
+    let line = getline(v:foldstart)
+  else
+    let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+
+  let foldsymbol='+'
+  let repeatsymbol=''
+  let prefix = foldsymbol . ' '
+
+  let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+  let foldSize = 1 + v:foldend - v:foldstart
+  let foldSizeStr = ' ' . foldSize . ' lines '
+  let foldLevelStr = repeat('+--', v:foldlevel)
+  let lineCount = line('$')
+  let foldPercentage = printf('[%.1f', (foldSize*1.0)/lineCount*100) . '%] '
+  let expansionString = repeat(repeatsymbol, w - strwidth(prefix.foldSizeStr.line.foldLevelStr.foldPercentage))
+  return prefix . line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endfunction
 
 " vim:set et sw=2:

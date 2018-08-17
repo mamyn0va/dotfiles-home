@@ -1,3 +1,10 @@
+"=============================================================================
+" file.vim --- SpaceVim file API
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
 scriptencoding utf-8
 let s:file = {}
 let s:system = SpaceVim#api#import('system')
@@ -26,8 +33,8 @@ let s:file_node_extensions = {
       \  'md'       : '',
       \  'markdown' : '',
       \  'json'     : '',
-      \  'js'       : '',
-      \  'jsx'      : '',
+      \  'js'       : '',
+      \  'jsx'      : '',
       \  'rb'       : '',
       \  'php'      : '',
       \  'py'       : '',
@@ -144,7 +151,9 @@ function! s:filetypeIcon(path) abort
     endif
   endfor
   let ext = fnamemodify(file, ':e')
-  if has_key(s:file_node_extensions, ext)
+  if has_key(g:spacevim_filetype_icons, ext)
+    return g:spacevim_filetype_icons[ext]
+  elseif has_key(s:file_node_extensions, ext)
     return s:file_node_extensions[ext]
   endif
   return ''
@@ -186,6 +195,31 @@ function! s:ls(dir, if_file_only) abort
 endfunction
 
 let s:file['ls'] = function('s:ls')
+
+"
+" {
+" 'filename' : {
+"                 line1 : content,
+"                 line2 : content,
+"              } 
+" }
+function! s:updatefiles(files) abort
+  let failed = []
+  for fname in keys(a:files)
+    let buffer = readfile(fname)
+    for line in keys(a:files[fname])
+      let buffer[line - 1] = a:files[fname][line]
+    endfor
+    try
+      call writefile(buffer, fname, 'b')
+    catch 
+      call add(failed, fname)
+    endtry
+  endfor
+  return failed
+endfunction
+
+let s:file['updateFiles'] = function('s:updatefiles')
 
 function! SpaceVim#api#file#get() abort
   return deepcopy(s:file)

@@ -1,3 +1,12 @@
+"=============================================================================
+" edit.vim --- SpaceVim edit layer
+" Copyright (c) 2016-2017 Wang Shidong & Contributors
+" Author: Wang Shidong < wsdjeg at 163.com >
+" URL: https://spacevim.org
+" License: GPLv3
+"=============================================================================
+
+
 scriptencoding utf-8
 let s:PASSWORD = SpaceVim#api#import('password')
 let s:NUMBER = SpaceVim#api#import('data#number')
@@ -8,20 +17,21 @@ function! SpaceVim#layers#edit#plugins() abort
         \ ['tpope/vim-surround'],
         \ ['tpope/vim-repeat'],
         \ ['junegunn/vim-emoji'],
-        \ ['terryma/vim-multiple-cursors', { 'loadconf' : 1}],
+        \ ['terryma/vim-multiple-cursors', { 'loadconf' : 1, 'merged' : 0}],
         \ ['terryma/vim-expand-region', { 'loadconf' : 1}],
         \ ['kana/vim-textobj-user'],
         \ ['kana/vim-textobj-indent'],
         \ ['kana/vim-textobj-line'],
         \ ['kana/vim-textobj-entire'],
         \ ['scrooloose/nerdcommenter', { 'loadconf' : 1}],
-        \ ['mattn/emmet-vim',                        { 'on_cmd' : 'EmmetInstall'}],
         \ ['gcmt/wildfire.vim',{'on_map' : '<Plug>(wildfire-'}],
         \ ['easymotion/vim-easymotion'],
         \ ['haya14busa/vim-easyoperator-line'],
         \ ['editorconfig/editorconfig-vim', { 'merged' : 0}],
-        \ ['floobits/floobits-neovim',      { 'on_cmd' : ['FlooJoinWorkspace','FlooShareDirPublic','FlooShareDirPrivate']}],
         \ ['osyo-manga/vim-jplus', { 'on_map' : '<Plug>(jplus' }],
+        \ ['godlygeek/tabular',           { 'on_cmd' : 'Tabularize'}],
+        \ ['ntpeters/vim-better-whitespace',  { 'on_cmd' : 'StripWhitespace'}],
+        \ ['ianva/vim-youdao-translater', { 'on_cmd' : ['Ydv','Ydc','Yde']}],
         \ ]
   if executable('fcitx')
     call add(plugins,['lilydjwg/fcitx.vim',        { 'on_event' : 'InsertEnter'}])
@@ -35,7 +45,6 @@ function! SpaceVim#layers#edit#config() abort
   let g:multi_cursor_skip_key=get(g:, 'multi_cursor_skip_key', '<C-x>')
   let g:multi_cursor_quit_key=get(g:, 'multi_cursor_quit_key', '<Esc>')
   let g:user_emmet_install_global = 0
-  let g:user_emmet_leader_key=get(g:, 'user_emmet_leader_key', '<C-e>')
   let g:user_emmet_mode='a'
   let g:user_emmet_settings = {
         \ 'javascript': {
@@ -75,6 +84,7 @@ function! SpaceVim#layers#edit#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ';'], 'Tabularize /;', 'align region at ;', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '='], 'Tabularize /=', 'align region at =', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '¦'], 'Tabularize /¦', 'align region at ¦', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '<Bar>'], 'Tabularize /|', 'align region at |', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'd', 'w'], 'StripWhitespace', 'delete trailing whitespaces', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'd', '[SPC]'], 'silent call call('
         \ . string(s:_function('s:delete_extra_space')) . ', [])',
@@ -510,6 +520,6 @@ function! s:add_buffer_head() abort
   endif
 endfunction
 
-function! SpaceVim#layers#edit#add_ft_head_tamplate(ft, tamp)
+function! SpaceVim#layers#edit#add_ft_head_tamplate(ft, tamp) abort
   call extend(s:ft_head_tp, {a:ft : a:tamp})
 endfunction
