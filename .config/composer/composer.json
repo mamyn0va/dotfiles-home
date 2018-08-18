@@ -8,7 +8,8 @@
         "phpmd/phpmd": "^2.6",
         "phploc/phploc": "^4.0",
         "webysther/composer-plugin-qa": "^1.0",
-        "psy/psysh": "^0.9.5"
+        "psy/psysh": "^0.9.5",
+        "brianium/paratest": "^2.0"
     },
     "authors": [
         {
