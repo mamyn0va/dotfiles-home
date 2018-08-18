@@ -1,10 +1,10 @@
 /usr/lib
 ├── atom-package-manager@1.19.0
 ├── CustomerService@0.3.1 -> /home/biros/projects/payments-backend/CustomerService/install/build
-├── dockly@3.6.0
+├── dockly@3.7.0
 ├── football-cli@0.1.1
 ├── grunt@1.0.3
-├── npm@6.3.0
+├── npm@6.4.0
 ├── remark@8.0.0
 ├── remark-cli@4.0.0
 ├── remark-stringify@4.0.0
