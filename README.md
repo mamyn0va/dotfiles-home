@@ -4,7 +4,7 @@
 
 ## guake
 
-## fish + fisherman + oh-my-fish + bobthefish
+## fish + fisherman + oh-my-fish + neolambda
 
 ## atom
 
