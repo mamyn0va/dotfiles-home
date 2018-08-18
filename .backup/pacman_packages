@@ -10,6 +10,7 @@ apm 1.19.0-6
 artwork-i3 20180516-1
 asoundconf 1:1.2-1
 atom 1.29.0-1
+atool 0.39.0-5
 autoconf 2.69-4
 autofs 5.1.4-3
 autojump 22.5.1-1
@@ -166,6 +167,7 @@ gvfs-smb 1.36.2-3
 gzip 1.9-1
 haveged 1.9.4-2
 hexchat 2.14.1-6
+highlight 3.44-1
 hplip 3.18.7-3.1
 htop 2.2.0-2
 hugo 0.46-1
@@ -217,6 +219,7 @@ logrotate 3.14.0-1
 lolcat 99.9.11-1
 lsb-release 1.4-12
 lvm2 2.02.181-1
+lynx 2.8.9-1
 m4 1.4.18-1
 make 4.2.1-2
 man-db 2.8.4-1
@@ -238,6 +241,7 @@ mariadb 10.1.35-1
 mariadb-clients 10.1.35-1
 matterhorn 40901.0.0-3
 mdadm 4.0-1
+mediainfo 18.05-2
 memtest86+ 5.01-2
 menulibre 2.2.0-2
 mesa-demos 8.4.0-1
@@ -315,6 +319,7 @@ psmisc 23.1-1
 pulseaudio-bluetooth 12.2-2
 pulseaudio-ctl 1.66-1
 pulseaudio-zeroconf 12.2-2
+pygmentize 2.2.0-2
 pyqt5-common 5.11.2-2
 python 3.7.0-3
 python-pillow 5.2.0-2
@@ -386,6 +391,7 @@ vim-tagbar 2.7-1
 vim-taglist 46-3
 vim-workspace 1.0b1-8
 vlc-nightly 3.0.4v20180817-1
+w3m 0.5.3.git20180125-1
 waterfox-bin 56.2.2-1
 wget 1.19.5-1
 which 2.21-2

@@ -42,7 +42,7 @@
 
 function! SpaceVim#layers#lang#go#plugins() abort
   let plugins = [['fatih/vim-go', { 'on_ft' : 'go', 'loadconf_before' : 1}]]
-  if has('nvim')
+  if has('nvim') && g:spacevim_autocomplete_method ==# 'deoplete'
     call add(plugins, ['zchee/deoplete-go', {'on_ft' : 'go', 'build': 'make'}])
   endif
   return plugins
@@ -68,17 +68,10 @@ function! SpaceVim#layers#lang#go#config() abort
     call SpaceVim#mapping#gd#add('go', function('s:go_to_def'))
   endif
   call SpaceVim#mapping#space#regesit_lang_mappings('go', function('s:language_specified_mappings'))
-augroup spacevim_layer_lang_go
-  autocmd!
-  " Add indentation level to tab-indentated files. 
-  " Note: there is a blank space at the end of the late backslash
-  autocmd FileType go setl list lcs=tab:\┊\ 
-  autocmd FileType go setl spell
-augroup END
 endfunction
 
 function! s:go_to_def() abort
-    call go#def#Jump('')
+  call go#def#Jump('')
 endfunction
 
 function! s:language_specified_mappings() abort
