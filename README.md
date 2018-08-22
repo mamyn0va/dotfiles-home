@@ -2,7 +2,7 @@
 
 ## deepin-wm
 
-## guake
+## guake + tmux + tmuxp + tmux-tpm
 
 ## fish + fisherman + oh-my-fish + neolambda
 
