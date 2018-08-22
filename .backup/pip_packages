@@ -62,7 +62,9 @@ six                    1.11.0
 sqlparse               0.2.4     
 tabulate               0.8.2     
 team                   1.0       
+termcolor              1.1.0     
 terminaltables         3.1.0     
+tldr                   0.4.4     
 udiskie                1.7.5     
 ufw                    0.35      
 urllib3                1.23      
