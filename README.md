@@ -12,4 +12,4 @@ My Atom config can be restored from [this gist](https://gist.github.com/mamyn0va
 
 ## neovim + spacevim + vim-plug
 
-## composer
+## cargo + composer + gem + pip + npm + ghc-pkg + pacman
