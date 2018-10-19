@@ -1,6 +1,7 @@
 Package                Version   
 ---------------------- ----------
 appdirs                1.4.3     
+asciinema              2.0.1     
 asn1crypto             0.24.0    
 btrfsutil              1.0.0     
 CacheControl           0.12.5    
@@ -15,7 +16,8 @@ cryptography           2.3.1
 distlib                0.2.7     
 distro                 1.3.0     
 docopt                 0.6.2     
-Glances                2.11.1    
+Glances                3.0       
+gps                    3.17      
 Guake                  3.3.2     
 gufw                   18.4.0    
 html5lib               1.0.1     
@@ -40,7 +42,7 @@ pip                    18.0
 ply                    3.11      
 progress               1.4       
 prompt-toolkit         1.0.15    
-psutil                 5.4.6     
+psutil                 5.4.7     
 ptyprocess             0.6.0     
 pycairo                1.17.0    
 pycparser              2.18      
