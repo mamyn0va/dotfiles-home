@@ -7,7 +7,7 @@ gem list > ~/.backup/gem_packages || echo "gem failed"
 npm list -g --depth=0 > ~/.backup/npm_packages || echo "npm failed"
 pip list > ~/.backup/pip_packages || echo "pip failed"
 cargo --list | tail -n +2 | tr -d " " > ~/.backup/cargo_packages || echo "cargo failed"
-ghc-pkg list > ~/.backup/ghc-pkg_packages || echo "ghc-pkg failed"
+#ghc-pkg list > ~/.backup/ghc-pkg_packages || echo "ghc-pkg failed"
 composer global show | cut -d ' ' -f1 > ~/.backup/composer_packages || echo "composer failed"
 
 git add -f .backup
