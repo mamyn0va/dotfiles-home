@@ -43,6 +43,7 @@ clog-bin 0.9.3-1
 cmake 3.14.3-1
 code 1.33.1-1
 composer 1.8.5-1
+compton 6.2-2
 conky-i3 20180507-1
 consolas-font 1.1-1
 cool-retro-term 1.1.1-1
@@ -103,6 +104,7 @@ docker 1:18.09.5-1
 docker-compose 1.24.0-1
 dockerfile_lint 0.3.2-1
 dosfstools 4.1-2
+dunst 1.4.1-2
 e2fsprogs 1.45.0-1
 econnman 1.1-3
 ecryptfs-utils 111-3
@@ -113,6 +115,7 @@ exa 0.8.0-3
 exfat-utils 1.3.0-1
 f2fs-tools 1.12.0-2
 fakeroot 1.23-1
+feh 3.2-1
 ffmpeg 1:4.1.3-1
 ffmpegthumbnailer 2.2.0-2
 file 5.36-1
@@ -180,7 +183,12 @@ hplip 1:3.19.3-1
 htop 2.2.0-2
 httpie 1.0.2-1
 hugo 0.55.3-1
+i3-gaps 4.16.1-1
+i3blocks 1.4-6
+i3lock-color-git r560.a5c65d4-1
+i3status-manjaro 2.12-1
 icdiff 1.9.4-1
+icons-in-terminal r93.b12286d-2
 icu62 62.1-1
 imagewriter 1.10.1420800585.134a9b3-4
 inetutils 1.9.4-7
@@ -226,6 +234,7 @@ logrotate 3.15.0-1
 lolcat 99.9.21-1
 lsb-release 1.4-12
 lvm2 2.02.184-4
+lxappearance 0.6.3-2
 lynx 2.8.9-2
 m4 1.4.18-2
 make 4.2.1-3
@@ -300,6 +309,8 @@ p7zip 16.02-5
 pa-applet 1.0.2-3
 pacman 5.1.3-1
 pamac-gtk 7.3.5-4
+paper-gtk-theme-git 302.770aba4-1
+paper-icon-theme-git 746.04115106-1
 papirus-icon-theme-git 1:20190302.r78.gf698582bb3-1
 patch 2.7.6-7
 patchutils 0.3.4-3
@@ -322,8 +333,10 @@ php-phpdbg 7.3.4-2
 php-sqlite 7.3.4-2
 pidgin 2.13.0-5
 pkgconf 1.6.1-1
+playerctl 2.0.2-2
 plymouth-theme-manjaro-deepin 1.6-5
 plymouth-theme-manjaro-deepin-circle 1.0-4
+polybar 3.3.1-2
 ponysay 3.0.3-1
 poppler-data 0.4.9-1
 poppler-glib 0.76.0-1
@@ -354,6 +367,7 @@ rambox 0.5.17-1
 ranger 1.9.2-1
 reiserfsprogs 3.6.27-2
 ripgrep 11.0.1-1
+rofi 1.5.4-1
 rsync 3.1.3-1
 ruby-bundler 2.0.1-3
 ruby-rake 12.3.1-3
@@ -375,6 +389,8 @@ subversion 1.11.1-1
 sudo 1.8.27-1
 sweethome3d 6.1.2-1
 sysfsutils 2.1.0-10
+sysstat 12.1.5-1
+system-san-francisco-font-git 1.0-1
 systemd-sysvcompat 242.16-1
 tar 1.32-1
 task 2.5.1-2
@@ -394,6 +410,7 @@ ttf-bitstream-vera 1.10-12
 ttf-devicons 1.8.0-1
 ttf-droid 20121017-6
 ttf-emojione 4.5-1
+ttf-font-awesome-4 4.7.0-5
 ttf-hack 3.003-1
 ttf-inconsolata 1:2.0.0.1-3
 ttf-indic-otf 0.2-9
@@ -425,7 +442,7 @@ vim-tagbar 2.7-2
 vim-taglist 46-4
 vim-workspace 1.0b1-9
 vlc-nightly 4.0.0v20190324-1
-w3m 0.5.3.git20180125-1
+w3m 0.5.3.git20190105-1
 waterfox-bin 56.2.10-1
 wget 1.20.3-1
 which 2.21-3
@@ -454,10 +471,12 @@ xorg-twm 1.0.10-1
 xorg-utils 7.6-9
 xorg-xinit 1.4.1-1
 xorg-xkill 1.0.5-1
+xss-lock-git 0.3.0.r4.g1e158fb-1
 xterm 344-1
 yarn 1.15.2-1
 yay 9.2.0-1.0
 yelp 3.32.1-1
+youtube-dl 2019.07.02-1
 z 1.11-1
 zd1211-firmware 1.5-3
 zsh 5.7.1-1
