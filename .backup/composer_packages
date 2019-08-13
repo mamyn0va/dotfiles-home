@@ -50,9 +50,9 @@ sebastian/version
 squizlabs/php_codesniffer
 symfony/config
 symfony/console
-symfony/contracts
 symfony/dependency-injection
 symfony/event-dispatcher
+symfony/event-dispatcher-contracts
 symfony/filesystem
 symfony/finder
 symfony/options-resolver
@@ -60,7 +60,9 @@ symfony/polyfill-ctype
 symfony/polyfill-mbstring
 symfony/polyfill-php70
 symfony/polyfill-php72
+symfony/polyfill-php73
 symfony/process
+symfony/service-contracts
 symfony/stopwatch
 symfony/var-dumper
 theseer/fdomdocument

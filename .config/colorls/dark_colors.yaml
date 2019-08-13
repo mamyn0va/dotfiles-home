@@ -1,0 +1,40 @@
+# Main Colors
+unrecognized_file: slateblue
+recognized_file:   snow
+dir:               magenta
+
+# Link
+dead_link: red
+link:      cyan
+
+# Access Modes
+write:     cyan
+read:      magenta
+exec:      aqua
+no_access: indianred
+
+# Age
+hour_old:    snow
+day_old:     lightgray
+no_modifier: dimgray
+
+# File Size
+file_large:  snow
+file_medium: lightgray
+file_small:  dimgray
+
+# Random
+report: white
+user:   cyan
+tree:   cyan
+empty:  aqua
+error:  red
+normal: aqua
+
+# Git
+addition:     chartreuse
+modification: darkkhaki
+deletion:     darkred
+untracked:    darkorange
+unchanged:    forestgreen
+
