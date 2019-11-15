@@ -1,7 +1,7 @@
 /usr/lib
 ├── @aweary/alder@2.0.0
 ├── asar@2.0.1
-├── atom-package-manager@2.4.2
+├── atom-package-manager@2.4.3
 ├── CustomerService@npm:undefined@0.1.0
 ├── dockerfile_lint@0.3.3
 ├── dockly@3.11.1
@@ -12,7 +12,7 @@
 ├── hackmyresume@1.8.0
 ├── jsonresume-theme-material@1.1.2
 ├── mapscii@0.1.7
-├── node-gyp@3.8.0
+├── node-gyp@5.0.3
 ├── npm@6.10.2
 ├── puppeteer@1.19.0
 ├── remark@10.0.1
@@ -26,5 +26,5 @@
 ├── trello-cli@0.2.2
 ├── wowcup@0.0.3
 ├── wunderline@4.10.2
-└── yarn@1.17.3
+└── yarn@1.19.1
 
