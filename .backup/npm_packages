@@ -1,8 +1,8 @@
 /usr/lib
 ├── @aweary/alder@2.0.0
 ├── @bitwarden/cli@1.8.0
-├── asar@2.0.3
-├── atom-package-manager@2.4.5
+├── asar@3.0.3
+├── atom-package-manager@2.5.0
 ├── CustomerService@npm:undefined@0.1.0
 ├── dockerfile_lint@0.3.3
 ├── dockly@3.11.1
@@ -10,22 +10,20 @@
 ├── football-cli@0.1.1
 ├── fx@14.0.1
 ├── grunt@1.0.4
-├── hackmyresume@1.8.0
 ├── jsonresume-theme-material@1.1.2
 ├── mapscii@0.1.7
-├── node-gyp@6.0.1
+├── node-gyp@6.1.0
 ├── npm@6.10.2
 ├── puppeteer@1.19.0
 ├── remark@10.0.1
 ├── remark-cli@6.0.1
 ├── remark-stringify@6.0.4
 ├── resume-cli@1.2.7
-├── semver@6.3.0
+├── semver@7.3.2
 ├── slack-cli@1.0.18
 ├── slackadaisical@0.1.2
 ├── swagger-cli@1.0.2
 ├── trello-cli@0.2.2
 ├── wowcup@0.0.3
-├── wunderline@4.10.2
-└── yarn@1.21.1
+└── yarn@1.22.4
 

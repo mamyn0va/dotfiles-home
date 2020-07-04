@@ -4,9 +4,11 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	co = checkout
+	status = st -sb
+	st = status -sb
 [core]
 	editor = nvim
-	pager = cat
+	pager = less
 	autocrlf = input
 	ignorecase = false
 	safecrlf = warn

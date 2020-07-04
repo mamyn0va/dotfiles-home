@@ -2,7 +2,7 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx SHELL /usr/bin/bash
 set -gx PROJECT_PATHS ~/projects
-set -gx PATH /home/biros/.gem/ruby/2.6.0/bin $PATH
+set -gx PATH /home/biros/.gem/ruby/2.6.0/bin /home/biros/.gem/ruby/2.7.0/bin $PATH
 set -g theme_powerline_fonts yes
 set -g theme_nerd_fonts yes
 set -g theme_display_user yes

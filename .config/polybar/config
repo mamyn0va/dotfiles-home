@@ -1,0 +1,368 @@
+;    ██▓███   ▒█████   ██▓   ▓██   ██▓ ▄▄▄▄    ▄▄▄       ██▀███  
+;    ▓██░  ██▒▒██▒  ██▒▓██▒    ▒██  ██▒▓█████▄ ▒████▄    ▓██ ▒ ██▒
+;    ▓██░ ██▓▒▒██░  ██▒▒██░     ▒██ ██░▒██▒ ▄██▒██  ▀█▄  ▓██ ░▄█ ▒
+;    ▒██▄█▓▒ ▒▒██   ██░▒██░     ░ ▐██▓░▒██░█▀  ░██▄▄▄▄██ ▒██▀▀█▄  
+;    ▒██▒ ░  ░░ ████▓▒░░██████▒ ░ ██▒▓░░▓█  ▀█▓ ▓█   ▓██▒░██▓ ▒██▒
+;    ▒▓▒░ ░  ░░ ▒░▒░▒░ ░ ▒░▓  ░  ██▒▒▒ ░▒▓███▀▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
+;    ░▒ ░       ░ ▒ ▒░ ░ ░ ▒  ░▓██ ░▒░ ▒░▒   ░   ▒   ▒▒ ░  ░▒ ░ ▒░
+;    ░░       ░ ░ ░ ▒    ░ ░   ▒ ▒ ░░   ░    ░   ░   ▒     ░░   ░ 
+             ░ ░      ░  ░░ ░      ░            ░  ░   ░     
+                          ░ ░           ░                    
+
+; all themes include a colors file
+[colors]
+include-file = ~/.config/polybar/colors
+
+[bar/top]
+;monitor = ${env:MONITOR:HDMI-1}
+dpi = 133
+include-file = ~/.config/polybar/top-bar
+
+[bar/top-second]
+;monitor = eDP-1
+dpi = 133
+include-file = ~/.config/polybar/top-second-bar
+
+[bar/bottom-launcher]
+;monitor = eDP-1
+dpi = 133
+include-file = ~/.config/polybar/bottom-launcher
+
+[bar/i3top]
+monitor = eDP1
+dpi = 133
+include-file = ~/.config/polybar/i3-top
+
+[bar/i3secondtop]
+;monitor = eDP-1
+dpi = 133
+include-file = ~/.config/polybar/i3-second-top
+
+[bar/i3bottom]
+;monitor = eDP-1
+dpi = 133
+include-file = ~/.config/polybar/i3-bottom
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 3
+label-occupied = %index%
+label-occupied-padding = 3
+label-urgent = %index%!
+label-urgent-background = ${colors.background-alt}
+label-urgent-padding = 3
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 3
+; label-separator = |
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+include-file = ~/.config/polybar/i3-name
+label-mode-padding = 2
+label-mode-foreground = ${colors.foreground-alt}
+label-mode-background = ${colors.primary}
+; focused = Active workspace on focused monitor
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.desktop}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+; unfocused = Inactive workspace on any monitor
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+; visible = Active workspace on unfocused monitor
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+; urgent = Workspace with urgency hint set
+label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+; Separator in between workspaces
+; label-separator = |
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = false
+enable-click = true 
+enable-scroll = false
+include-file = ~/.config/polybar/ewmh-name
+format = <label-state>
+label-active-padding = 1
+label-active-foreground = ${colors.primary}
+label-active-background = ${module/bspwm.label-focused-background}
+label-occupied-padding = 0
+label-occupied-foreground = ${colors.secondary}
+label-urgent-foreground = ${module/i3.label-urgent-foreground}
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-empty-padding = 1
+;label-empty-foreground = #0000aa
+
+[module/runBrave]
+type = custom/text  
+content = "   "
+content-foreground = ${colors.alert}
+click-left = "brave-sec"
+
+[module/runMail]
+type = custom/text  
+content = "   "
+content-foreground = ${colors.alert}
+click-left = "kitty -e mutt"
+
+[module/runMsf]
+type = custom/text  
+content = "   " 
+content-foreground = ${colors.alert}
+click-left = "kitty -e msfconsole"
+
+[module/runWireshark]
+type = custom/text  
+content = "   " 
+content-foreground = ${colors.alert}
+click-left = "wireshark"
+
+[module/uptime]
+type = custom/script
+exec = uptime|awk '{print $2 " " $3 " " $4 " " $5 " " $6}'|cut -d ',' -f -2
+interval = 6
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+format-foreground = ${colors.foreground}
+format-padding = 1
+
+[module/netstat]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+label-connected = " %{F#ff0000} %{F-}%upspeed% %{F#00ff00} %{F-}%downspeed% "
+label-connected-background = ${colors.background-alt}
+
+[module/hostname]
+type = custom/script
+interval = 256
+format = "<label>"
+format-prefix = "  "
+format-prefix-foreground = ${colors.secondary}
+format-padding = 0
+exec = echo "$(uname -n)"
+
+[module/ip]
+type = custom/script
+interval = 2
+format = "<label>"
+format-prefix = "ip: "
+format-prefix-foreground = ${colors.primary}
+format-background = ${colors.background-alt}
+format-padding = 1
+exec = echo "$(wget -qO- https://canihazip.com/s | sed -e 's/[^[:digit:]\|.]//g')"
+exec-if = ping -c 1 gentoo.org
+
+[module/xwindow]
+type = internal/xwindow
+label = " %title:0:15:...%"
+label-foreground = ${colors.foreground}
+
+[module/mail]
+type = custom/script
+; 600 = 10min
+interval = 600
+format = <label>
+format-prefix =  
+format-padding = 1
+format-prefix-foreground = ${colors.primary}
+format-background = ${colors.background-alt}
+exec = ~/.config/polybar/mails
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "mem: "
+format-prefix-foreground = ${colors.secondary}
+label = "%percentage_used%%"
+format-padding = 1
+format-background = ${colors.background-alt}
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-background = ${colors.background-alt}
+format-connected-padding = 1
+label-connected = %essid:0:15% - %{F#aca074}%signal%%%{F-}
+format-connected-prefix = "wlan0: "
+format-connected-prefix-foreground = ${colors.secondary}
+format-disconnected = "wlan: off"
+format-disconnected-foreground = ${colors.primary}
+format-disconnected-padding = 1
+label-disconnected-foreground = ${colors.secondary}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp1s0f2
+interval = 3.0
+format-connected = <label-connected>
+format-connected-prefix = "eth: "
+format-connected-padding = 1
+format-connected-prefix-foreground = ${colors.secondary}
+label-connected = "on"
+format-disconnected-padding = 1
+format-disconnected = "eth off"
+format-disconnected-foreground = ${colors.alert}
+
+[module/date]
+type = internal/date
+interval = 5
+date = %a %d %b
+date-alt = %Y-%m-%d
+time = %H:%M
+time-alt = %H:%M
+label = " %time% %date% "
+label-background = ${colors.background-alt}
+
+[module/day]
+type = internal/date
+interval = 5
+date = %a %d %b
+date-alt = %Y-%m-%d
+label = " %date% "
+label-background = ${colors.background-alt}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;label-muted = 🔇 muted
+label-muted =  muted
+label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+;ramp-volume-0 = 🔈
+;ramp-volume-1 = 🔉
+;ramp-volume-2 = 🔊
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 100
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-full = " full "
+format-full-prefix = 
+format-full-background = ${colors.background-alt}
+format-full-prefix-foreground = ${colors.primary}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/powermenu]
+type = custom/menu
+expand-right = false
+format-spacing = 1
+label-open =  
+label-open-padding = 1
+label-open-foreground = ${colors.secondary}
+label-open-background = ${colors.background-alt}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-close-background = ${colors.background-alt}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = Lock Me !
+menu-0-0-exec = menu-open-1
+menu-0-0-background = ${colors.background-alt}
+
+menu-1-0 = Lock
+menu-1-0-exec = i3lock -i ~/images/bgi3lock.png -e
+menu-1-0-background = ${colors.background-alt}
+
+[module/line-l]
+type = custom/text
+content = "____[ "
+content-foreground = ${colors.extend}
+
+[module/line-r]
+type = custom/text
+content = " ]____"
+content-foreground = ${colors.extend}
+
+[module/dagg-l]
+type = custom/text
+content = <;;;;;;;;;]xxxx(
+content-foreground = ${colors.extend}
+content-padding = 2
+
+[module/dagg-r]
+type = custom/text
+content = )xxxx[;;;;;;;;;>
+content-foreground = ${colors.extend}
+content-padding = 2
+
+[module/wave]
+type = custom/text
+content = *~’^‘~*-,._.,-*~’^‘~*
+content-foreground = ${colors.extend}
+content-padding = 2
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5

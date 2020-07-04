@@ -1,1 +1,0 @@
-/home/biros/.config/fisherman/g2/completions/g2.fish
