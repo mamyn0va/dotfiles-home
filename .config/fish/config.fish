@@ -12,3 +12,5 @@ set -g theme_title_use_abbreviated_path yes
 set -g theme_color_scheme solarized
 
 thefuck --alias | source
+
+starship init fish | source

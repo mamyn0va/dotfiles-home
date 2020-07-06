@@ -5,7 +5,8 @@
 set $mod Mod4
 
 gaps outer 0 
-gaps inner 15
+gaps inner 10
+gaps top 30
 
 for_window [class="^.*"] border normal 1
 for_window [class="^.*"] border pixel 1
@@ -87,7 +88,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -111,6 +112,7 @@ set $ws5 "gimp"
 set $ws6 "vms"
 
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+e exec "pcmanfm"
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -175,3 +177,4 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh i3
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-scale /home/biros/Pictures/Wallpapers/city.jpg
+exec --no-startup-id guake
