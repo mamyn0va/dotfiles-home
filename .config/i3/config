@@ -45,7 +45,7 @@ bindsym $mod+Shift+a kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show run -show-icons
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -65,12 +65,6 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+m move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -113,6 +107,9 @@ set $ws6 "vms"
 
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+e exec "pcmanfm"
+bindsym $mod+Shift+l exec "i3lock -i /home/biros/Downloads/1200px-Extinction_Symbol.svg.png"
+bindsym Print exec /usr/bin/deepin-screenshot -s /home/boris/Pictures
+bindsym $mod+Print exec /usr/bin/deepin-screenshot -s /home/boris/Pictures -d 5
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -171,6 +168,24 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym XF86WWW exec --no-startup-id /usr/bin/firefox
+bindsym XF86Mail exec --no-startup-id /usr/bin/evolution
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh i3

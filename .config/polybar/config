@@ -43,6 +43,40 @@ include-file = ~/.config/polybar/i3-second-top
 dpi = 133
 include-file = ~/.config/polybar/i3-bottom
 
+[module/backlight]
+type = internal/xbacklight
+
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
+output = eDP1
+
+; Create scroll handlers used to set the backlight value
+; Default: true
+enable-scroll = true
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp>  <label>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
 [module/bspwm]
 type = internal/bspwm
 label-focused = %index%
@@ -273,17 +307,17 @@ format-volume = <ramp-volume> <label-volume>
 
 ; Available tokens:
 ;   %percentage% (default)
-;label-muted = 🔇 muted
-label-muted =  muted
+label-muted = 🔇 muted
+;label-muted =  muted
 label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
-;ramp-volume-0 = 🔈
-;ramp-volume-1 = 🔉
-;ramp-volume-2 = 🔊
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+;ramp-volume-0 = 
+;ramp-volume-1 = 
+;ramp-volume-2 = 
 
 [module/battery]
 type = internal/battery

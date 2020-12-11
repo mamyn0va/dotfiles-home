@@ -2,7 +2,7 @@
 ├── @aweary/alder@2.0.0
 ├── @bitwarden/cli@1.8.0
 ├── asar@3.0.3
-├── atom-package-manager@2.5.0
+├── atom-package-manager@2.6.0
 ├── CustomerService@npm:undefined@0.1.0
 ├── dockerfile_lint@0.3.3
 ├── dockly@3.11.1
@@ -12,18 +12,18 @@
 ├── grunt@1.0.4
 ├── jsonresume-theme-material@1.1.2
 ├── mapscii@0.1.7
-├── node-gyp@6.1.0
+├── node-gyp@7.1.0
 ├── npm@6.10.2
 ├── puppeteer@1.19.0
 ├── remark@10.0.1
 ├── remark-cli@6.0.1
 ├── remark-stringify@6.0.4
 ├── resume-cli@1.2.7
-├── semver@7.3.2
 ├── slack-cli@1.0.18
 ├── slackadaisical@0.1.2
 ├── swagger-cli@1.0.2
+├── swagger-ui-cli@0.6.0
 ├── trello-cli@0.2.2
 ├── wowcup@0.0.3
-└── yarn@1.22.4
+└── yarn@1.22.10
 
