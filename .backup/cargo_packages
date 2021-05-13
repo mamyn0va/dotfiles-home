@@ -13,6 +13,7 @@ initCreateanewcargopackageinanexistingdirectory
 installInstallaRustbinary.Defaultlocationis$HOME/.cargo/bin
 locate-projectPrintaJSONrepresentationofaCargo.tomlfile'slocation
 loginSaveanapitokenfromtheregistrylocally.Iftokenisnotspecified,itwillbereadfromstdin.
+logoutRemoveanAPItokenfromtheregistrylocally
 metadataOutputtheresolveddependenciesofapackage,theconcreteusedversionsincludingoverrides,inmachine-readableformat
 newCreateanewcargopackageat<path>
 ownerManagetheownersofacrateontheregistry
@@ -36,3 +37,4 @@ versionShowversioninformation
 yankRemoveapushedcratefromtheindex
 clippy
 fmt
+miri

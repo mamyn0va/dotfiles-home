@@ -1,5 +1,5 @@
 ; modules
-modules-left = hostname ip
+modules-left = hostname ip protonmail
 modules-center = i3
 modules-right = backlight pulseaudio memory battery wlan date powermenu
 

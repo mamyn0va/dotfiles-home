@@ -1,0 +1,6 @@
+[cmd_duration]
+min_time = 500
+format = "underwent [$duration]($style)"
+style = "bold yellow"
+show_notifications = true
+disabled = true

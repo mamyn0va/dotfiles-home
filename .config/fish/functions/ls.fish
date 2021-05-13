@@ -1,4 +1,4 @@
-# Defined in - @ line 0
-function ls --description 'alias ls=colorls --sd'
-	colorls --sd $argv;
+# Defined via `source`
+function ls --wraps='colorls --sd' --description 'alias ls=colorls --sd'
+  colorls --sd $argv; 
 end
