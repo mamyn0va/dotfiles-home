@@ -1,14 +1,10 @@
 # my dotfiles @home for manjaro
 
-## deepin-wm
+## i3wm + rofi + dunst + feh + pcmanfm + zathura + kazam
 
-## guake + tmux + tmuxp + tmux-tpm
+## kitty + tmux + tmuxp + tmux-tpm
 
-## fish + fisherman + oh-my-fish + neolambda
-
-## atom
-
-My Atom config can be restored from [this gist](https://gist.github.com/mamyn0va/f296ef0c90e040c988ce0e9d055919ec) using sync-settings package.
+## fish + fisherman + oh-my-fish + starship
 
 ## neovim + spacevim + vim-plug
 
