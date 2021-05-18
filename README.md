@@ -1,6 +1,6 @@
 # my dotfiles @home for manjaro
 
-## i3wm + rofi + dunst + feh + pcmanfm + zathura + kazam
+## sway + wofi + dunst + feh + pcmanfm + zathura + kazam
 
 ## kitty + tmux + tmuxp + tmux-tpm
 
