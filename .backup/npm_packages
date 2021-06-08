@@ -11,8 +11,8 @@
 ├── grunt@1.0.4
 ├── jsonresume-theme-material@1.1.2
 ├── mapscii@0.1.7
-├── node-gyp@7.1.2
-├── npm@7.9.0
+├── node-gyp@8.0.0
+├── npm@7.12.1
 ├── puppeteer@1.19.0
 ├── remark-cli@6.0.1
 ├── remark-stringify@6.0.4
