@@ -1,0 +1,1 @@
+/home/biros/.config/fisherman/fish_logo/functions/fish_logo.fish

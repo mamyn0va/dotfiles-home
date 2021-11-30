@@ -1,7 +1,7 @@
 /usr/lib
 ├── @aweary/alder@2.0.0
 ├── @bitwarden/cli@1.8.0
-├── atom-package-manager@2.6.1
+├── atom-package-manager@2.6.4
 ├── CustomerService@npm:undefined@0.1.0
 ├── dockerfile_lint@0.3.3
 ├── dockly@3.11.1
@@ -11,8 +11,9 @@
 ├── grunt@1.0.4
 ├── jsonresume-theme-material@1.1.2
 ├── mapscii@0.1.7
-├── node-gyp@8.0.0
-├── npm@7.12.1
+├── node-gyp@8.2.0
+├── nopt@5.0.0
+├── npm@8.1.3
 ├── puppeteer@1.19.0
 ├── remark-cli@6.0.1
 ├── remark-stringify@6.0.4
@@ -25,5 +26,5 @@
 ├── swagger-ui-cli@0.6.0
 ├── trello-cli@0.2.2
 ├── wowcup@0.0.3
-└── yarn@1.22.10
+└── yarn@1.22.17
 
